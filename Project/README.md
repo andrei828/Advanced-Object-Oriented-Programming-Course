@@ -8,7 +8,7 @@
 2) The are multiple classes present in the project: IClient, IAccount, Client, Account, Bank, BankServicesFactory, Business, CreditCard, DebitCard, Employee, Invoice, Mortgage, PackageServices, Person
 
 ### Implementation
-All requirements are present in the application above
+All requirements are present in the application above.
 
 ## UML Design
 ![alt text](https://github.com/andrei828/PAO/blob/master/Project/UML_PAO.png)
