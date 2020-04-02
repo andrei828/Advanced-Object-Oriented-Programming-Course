@@ -1,6 +1,6 @@
-# First checkpoint for PAO project
+## First checkpoint for PAO project
 
-## The project is an API for a banking system. The UML diagram is displayed below
+> **Note:**  The project is an API for a banking system. The UML diagram is displayed below.
 
 ### Modeling the system
 1) There are multiple actions/querys possible. For example, selecting a user, creating an account, receiving an invoice, paying an invoice, inspecting multiple accounts, receive the bank best suited for a deposit / mortgage / debit card / credit card, inspect the account of a selected user etc.
