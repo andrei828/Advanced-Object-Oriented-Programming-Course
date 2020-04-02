@@ -15,9 +15,9 @@ All requirements are present in the application above.
 
 ## Query code samples for API
 
-Create instance
+Create singleton instance of service
 ```
-PackageServices bankService = new PackageServices();
+PackageServices bankService = PackageServices.getInstance();
 ```
 
 Query for initialisation
