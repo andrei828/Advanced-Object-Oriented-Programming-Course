@@ -9,7 +9,8 @@ public class Bank {
 
     private long id;
     private String name;
-
+    private String address;
+    private String dateFounded;
     private List<Account> accountList;
     private Map<String, Double> offers;
     private List<Employee> employeeList;
@@ -19,8 +20,23 @@ public class Bank {
 
 
     public Bank(String name) {
-        this.id = Bank.staticId++;
         this.name = name;
+
+        BankUtilConstructor();
+    }
+
+    public Bank(String name, String address, String dateFounded) {
+
+        this.name = name;
+        this.address = address;
+        this.dateFounded = dateFounded;
+
+        BankUtilConstructor();
+    }
+
+    private void BankUtilConstructor() {
+
+        this.id = Bank.staticId++;
 
         offers = new HashMap<>();
         accountList = new ArrayList<>();
@@ -31,6 +47,7 @@ public class Bank {
         offers.put("mortgage", Bank.generateRandomDoubleRange(0.1, 0.2));
         offers.put("debit card", Bank.generateRandomDoubleRange(0.01, 0.1));
         offers.put("credit card", Bank.generateRandomDoubleRange(0.01, 0.2));
+
     }
 
     public double getOffers(String type) {

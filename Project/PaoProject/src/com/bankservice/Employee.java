@@ -8,6 +8,10 @@ public class Employee {
 
     private String name;
 
+    private String address;
+
+    private String position;
+
     private boolean occupied;
 
     private Bank workingAtBank;
@@ -16,6 +20,16 @@ public class Employee {
         this.id = Employee.staticId++;
         this.name = name;
         this.occupied = false;
+        this.workingAtBank = bank;
+        bank.addEmployee(this);
+    }
+
+    public Employee(String name, String address, String position, Bank bank) {
+        this.id = Employee.staticId++;
+        this.name = name;
+        this.occupied = false;
+        this.address = address;
+        this.position = position;
         this.workingAtBank = bank;
         bank.addEmployee(this);
     }
