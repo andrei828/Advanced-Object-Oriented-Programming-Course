@@ -1,4 +1,4 @@
-## First checkpoint for PAO project
+## First checkpoint
 
 > **Note:**  The project is an API for a banking system. The UML diagram is displayed below.
 
@@ -10,7 +10,19 @@
 ### Implementation
 All requirements are present in the application above.
 
-## UML Design
+## Second checkpoint
+
+### Extended the functionality by adding a handler to import data from CSV files
+1) The feature is present in the CSVLoader.java function 
+
+2) Program loads the data at the beginning of runtime
+
+### Built a telemetry feature for keeping track of used queries
+
+> **Note:**  Each query appends a row in a CSV file named "telemetry.csv" in the following structure: name_of_query, timestamp of call
+
+
+## UML Design (not updated for CSVLoader and Telemetry)
 ![alt text](https://github.com/andrei828/PAO/blob/master/Project/UML_PAO.png)
 
 ## Query code samples for API
