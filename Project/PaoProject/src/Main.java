@@ -7,16 +7,17 @@ public class Main {
         PackageServices bankService = PackageServices.getInstance();
 
         // query for initialisation
-//        bankService
-//                .createBanks()
-//                .createClients()
-//                .createEmployees()
-//                .init();
+        /*bankService
+                .createBanks()
+                .createClients()
+                .createEmployees()
+                .init();*/
 
         bankService
                 .loadBanksFromCSV()
                 .loadClientsFromCSV()
                 .loadEmployeesFromCSV()
+                .loadBusinessesFromCSV()
                 .init();
 
         // queries for showing all clients, banks and employees

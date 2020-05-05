@@ -14,6 +14,7 @@ class CSVLoader {
     private final static String csvFileBanks = "./src/com/bankservice/banks.csv";
     private final static String csvFileClients = "./src/com/bankservice/clients.csv";
     private final static String csvFileEmployees = "./src/com/bankservice/employees.csv";
+    private final static String csvFileBusinesses = "./src/com/bankservice/businesses.csv";
 
 
     static CSVLoader getInstance() {
@@ -33,7 +34,6 @@ class CSVLoader {
 
                 // use comma as separator
                 String[] bank = line.split(cvsSplitBy);
-
                 packageServices.addBank(new Bank(bank[1], bank[2], bank[3]));
 
             }
@@ -52,12 +52,7 @@ class CSVLoader {
 
                 // use comma as separator
                 String[] client = line.split(cvsSplitBy);
-
-                if (client[3].equals("Person")) {
-                    packageServices.addClient(new Person(client[1], client[2]));
-                } else if (client[3].equals("Business")) {
-                    packageServices.addClient(new Business(client[1], client[2]));
-                }
+                packageServices.addClient(new Person(client[1], client[2]));
 
             }
 
@@ -65,6 +60,22 @@ class CSVLoader {
             e.printStackTrace();
         }
 
+    }
+
+    void getBusinessesFromCSV(PackageServices packageServices) {
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFileBusinesses))) {
+
+            while ((line = br.readLine()) != null) {
+
+                // use comma as separator
+                String[] client = line.split(cvsSplitBy);
+                packageServices.addClient(new Business(client[1], client[2]));
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     void getEmployeesFromCSV(PackageServices packageServices) {

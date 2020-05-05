@@ -85,6 +85,14 @@ public class PackageServices {
 
         return this;
     }
+
+    public PackageServices loadBusinessesFromCSV() {
+
+        csvLoader.getBusinessesFromCSV(this);
+        telemetry.handler("Imported Businesses from CSV");
+
+        return this;
+    }
     
 
     public PackageServices createClients() {
@@ -175,6 +183,7 @@ public class PackageServices {
     }
 
     public void init() {
+        // prints the first client in the list
         System.out.println(clientList.get(0).getName());
     }
 
@@ -294,6 +303,12 @@ public class PackageServices {
 
     public List<Bank> getBankList() {
         return bankList;
+    }
+
+    class CustomComparator<T extends Comparable<T>> implements Comparator<T> {
+        public int compare(T a, T b) {
+            return a.compareTo(b);
+        }
     }
 
     public Client getClientWithMostAccounts() {
