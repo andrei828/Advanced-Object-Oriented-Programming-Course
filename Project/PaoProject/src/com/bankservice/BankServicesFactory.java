@@ -51,7 +51,7 @@ public class BankServicesFactory {
         switch(type) {
             case "deposit":
             case "Deposit":
-                return new Deposit(value);
+                return new Deposit((long)value);
 
             case "mortgage":
             case "Mortgage":
@@ -88,7 +88,7 @@ public class BankServicesFactory {
         switch(type) {
             case "deposit":
             case "Deposit":
-                return new Deposit(name);
+                return new Deposit((String)name);
 
             case "mortgage":
             case "Mortgage":

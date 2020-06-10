@@ -16,6 +16,7 @@ class CSVLoader {
     private final static String csvFileEmployees = "./src/com/bankservice/employees.csv";
     private final static String csvFileBusinesses = "./src/com/bankservice/businesses.csv";
 
+    private CSVLoader() {}
 
     static CSVLoader getInstance() {
 

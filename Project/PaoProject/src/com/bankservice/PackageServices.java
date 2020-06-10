@@ -26,7 +26,7 @@ public class PackageServices {
 
     private static CSVLoader csvLoader;
     private static Telemetry telemetry;
-
+    private static MySqlLoader sqlLoader;
 
     private PackageServices() {
 
@@ -35,6 +35,7 @@ public class PackageServices {
         employeeList = new ArrayList<>();
         csvLoader = CSVLoader.getInstance();
         telemetry = Telemetry.getInstance();
+        sqlLoader = MySqlLoader.getInstance();
 
         bestDeposit = new PriorityQueue<>(
             Comparator.comparingDouble(
@@ -62,6 +63,7 @@ public class PackageServices {
 
     }
 
+    // Load data from CSV with these four methods
     public PackageServices loadBanksFromCSV() {
 
         csvLoader.getBanksFromCSV(this);
@@ -91,6 +93,61 @@ public class PackageServices {
         csvLoader.getBusinessesFromCSV(this);
         telemetry.handler("Imported Businesses from CSV");
 
+        return this;
+    }
+
+
+    // Load data from MySql with these four methods
+    public PackageServices loadBanksFromSQL() {
+
+        if (MySqlLoader.connectionSuccessful) {
+
+            sqlLoader.getBanksFromSQL(this);
+            telemetry.handler("Imported Banks from MySQL");
+
+        } else {
+            return loadBanksFromCSV();
+        }
+        return this;
+    }
+
+    public PackageServices loadClientsFromSQL() {
+
+        if (MySqlLoader.connectionSuccessful) {
+
+            sqlLoader.getClientsFromSQL(this);
+            telemetry.handler("Imported Clients from MySQL");
+
+        } else {
+            return loadClientsFromCSV();
+        }
+
+        return this;
+    }
+
+    public PackageServices loadEmployeesFromSQL() {
+
+        if (MySqlLoader.connectionSuccessful) {
+
+            sqlLoader.getEmployeesFromSQL(this);
+            telemetry.handler("Imported Employees from MySQL");
+
+        } else {
+            return loadEmployeesFromCSV();
+        }
+        return this;
+    }
+
+    public PackageServices loadBusinessesFromSQL() {
+
+        if (MySqlLoader.connectionSuccessful) {
+
+            sqlLoader.getBusinessesFromSQL(this);
+            telemetry.handler("Imported Businesses from MySQL");
+
+        }else {
+            return loadBusinessesFromCSV();
+        }
         return this;
     }
     

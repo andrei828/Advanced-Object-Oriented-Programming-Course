@@ -13,11 +13,18 @@ public class Main {
                 .createEmployees()
                 .init();*/
 
-        bankService
+        /*bankService
                 .loadBanksFromCSV()
                 .loadClientsFromCSV()
                 .loadEmployeesFromCSV()
                 .loadBusinessesFromCSV()
+                .init();*/
+
+        bankService
+                .loadBanksFromSQL()
+                .loadClientsFromSQL()
+                .loadEmployeesFromSQL()
+                .loadBusinessesFromSQL()
                 .init();
 
         // queries for showing all clients, banks and employees
